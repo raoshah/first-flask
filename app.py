@@ -1,6 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash
 
 app = Flask(__name__)
+app.secret_key = "manbearpig_MUDMAN888"
 
 @app.route('/')
 def index():
@@ -9,6 +10,16 @@ def index():
 @app.route('/contact')
 def contact():
   return render_template('contact.html')
+
+@app.route("/hello")
+def hello():
+	flash("what's your name?")
+	return render_template("hello.html")
+
+@app.route("/hello", methods=['POST', 'GET'])
+def greeter():
+	flash("Hi " + str(request.form['name_input']) + ", great to see you!")
+	return render_template("hello.html")
 
 
 if __name__=='__main__':
