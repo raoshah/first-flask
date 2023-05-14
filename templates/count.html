@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div>
+ <h2>Counter</h2>
+    <h1>0</h1>
+  <div class="btn-container">
+    <button class="count" >Count</button>
+  
+</div>
+<script>
+let counter = 0;
+        function count() {
+            counter++;
+            document.querySelector('h1').innerHTML = counter;
+
+            if (counter % 20 === 0){
+                alert(`Count is Now ${counter}`);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            document.querySelector('button').onclick = count;
+
+        });
+
+</script>  
+{% endblock %}

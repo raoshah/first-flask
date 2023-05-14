@@ -21,6 +21,10 @@ def greeter():
 	flash("Hi " + str(request.form['name_input']) + ", great to see you!")
 	return render_template("hello.html")
 
+@app.route("/count")
+def count():
+  return render_template("count.html")
+
 
 if __name__=='__main__':
   app.run(host='0.0.0.0', debug=True)
