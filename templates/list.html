@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<form action="/list" method="post">
+
+    <br>
+        <input type="text" name="num">
+        <br>
+        <br>
+        <input type="text" name="name">
+        <br>
+        <input type="submit" value="Calculate" id="greet">
+    </form>
+<h1>Add {{ plus }}</h1>
+<h1>Sub {{ minus }}</h1>
+<h1>Div {{ div }}</h1>
+<h1>Multi {{ times }}</h1>
+
+{% endblock %}
