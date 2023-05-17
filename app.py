@@ -21,6 +21,10 @@ def greeter():
 	flash("Hi " + str(request.form['name_input']) + ", great to see you!")
 	return render_template("hello.html")
 
+@app.route("/count")
+def count():
+  return render_template("count.html")
+
 @app.route("/list", methods=['POST', 'GET'])
 def list():
   if request.method == 'POST':
