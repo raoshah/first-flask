@@ -36,7 +36,6 @@ table {
           <th>Name</th>
           <th>Price in Dollar</th>
           <th>Circulating Supply</th>
-          <th>Max Supply</th>
         </tr>
    {% for id in data %}
    
@@ -44,7 +43,6 @@ table {
       <td>{{id['symbol']}}</td>
       <td>{{id['priceUsd']}}</td>
       <td>{{id['supply']}}</td>
-      <td>{{id['maxSupply']}}</td>
     </tr>
   
    {% endfor %}
