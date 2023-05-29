@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, flash
+import requests
 
 app = Flask(__name__)
 app.secret_key = "manbearpig_MUDMAN888"
@@ -38,6 +39,23 @@ def list():
 
   else:
     return render_template("list.html")
+
+response = requests.get('https://api.coincap.io/v2/assets')
+
+@app.route('/cryptoprice', methods=['POST', 'GET'])
+def cryptoprice():
+  
+  
+   if response.status_code == 200:
+        data = response.json()
+        name = data['data']
+        return render_template('cryptoprice.html', data=name)
+   else:
+       return render_template("list.html")
+
+
+
+
 
 if __name__=='__main__':
   app.run(host='0.0.0.0', debug=True)

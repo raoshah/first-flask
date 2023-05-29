@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+table {
+          border-collapse: collapse;
+          width: 100%;
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      
+        th, td {
+          border: 1px solid #ddd;
+          padding: 8px;
+          text-align: left;
+        }
+      
+        th {
+          background-color: #f2f2f2;
+        }
+      
+        /* Responsive styles */
+        @media (max-width: 600px) {
+          table {
+            font-size: 12px;
+          }
+      
+          th, td {
+            padding: 6px;
+          }
+        }
+{% endblock %}
+
+{% block body %}
+<table>
+        <tr>
+          <th>Name</th>
+          <th>Price in Dollar</th>
+          <th>Circulating Supply</th>
+          <th>Max Supply</th>
+        </tr>
+   {% for id in data %}
+   
+    <tr>
+      <td>{{id['name']}}</td>
+      <td>{{id['priceUsd']}}</td>
+      <td>{{id['supply']}}</td>
+      <td>{{id['maxSupply']}}</td>
+    </tr>
+  
+   {% endfor %}
+</table>
+{% endblock %}
