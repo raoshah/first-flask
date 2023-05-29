@@ -48,8 +48,10 @@ def cryptoprice():
   
    if response.status_code == 200:
         data = response.json()
-        name = data['data']
-        return render_template('cryptoprice.html', data=name)
+        for id in data['data'] :
+           id['priceUsd'] = "%.3f" % (float(id['priceUsd']) * 82)
+
+        return render_template('cryptoprice.html', data=data['data'])
    else:
        return render_template("list.html")
 
