@@ -45,7 +45,6 @@ response = requests.get('https://api.coincap.io/v2/assets')
 @app.route('/cryptoprice', methods=['POST', 'GET'])
 def cryptoprice():
   
-  
    if response.status_code == 200:
         data = response.json()
         for id in data['data'] :
@@ -55,8 +54,19 @@ def cryptoprice():
    else:
        return render_template("list.html")
 
+quotes_response = requests.get('https://random-quotes-b46s.onrender.com')
 
+@app.route('/quotes', methods=['POST', 'GET'])
+def quotes():
+  if quotes_response.status_code == 200:
+    data1 = quotes_response.json()
+    return render_template('quotes.html', data=data1)
 
+  else:
+       return render_template("list.html")
+   
+    
+  
 
 
 if __name__=='__main__':
